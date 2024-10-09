@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .g {
+            width: 300px;
+            height: 300px;
+            display: grid;
+            grid-template-columns: repeat(10, 10%);
+
+            border: 5px solid black;
+        }
+
+        .cont {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px;
+
+        }
+
+        .box {}
+
+        .red {
+            box-shadow: 3px 3px black;
+            background-color: red;
+        }
+
+        .but {
+            display: grid;
+
+            grid-template-columns: repeat(4, 50px);
+            grid-template-rows: repeat(4, 50px);
+        }
+
+        button {
+            border-radius: 20px;
+            background-color: yellow;
+        }
+
+        #top {
+            grid-area: 1/2/1/3;
+        }
+
+        #left {
+            grid-area: 2/1/2/2;
+        }
+
+        #right {
+            grid-area: 2/3/2/4;
+        }
+
+        #bottom {
+            grid-area: 3/2/3/3;
+        }
+
+        .green {
+            box-shadow: 2px 2px black;
+            background-color: green;
+        }
+
+        #front {
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cont">
+        <div class="g">
+            <div class="box 00"></div>
+            <div class="box 01"></div>
+            <div class="box 02"></div>
+            <div class="box 03"></div>
+            <div class="box 04"></div>
+            <div class="box 05"></div>
+            <div class="box 06"></div>
+            <div class="box 07"></div>
+            <div class="box 08"></div>
+            <div class="box 09"></div>
+            <div class="box 10"></div>
+            <div class="box 11"></div>
+            <div class="box 12"></div>
+            <div class="box 13"></div>
+            <div class="box 14"></div>
+            <div class="box 15"></div>
+            <div class="box 16"></div>
+            <div class="box 17"></div>
+            <div class="box 18"></div>
+            <div class="box 19"></div>
+            <div class="box 20"></div>
+            <div class="box 21"></div>
+            <div class="box 22"></div>
+            <div class="box 23"></div>
+            <div class="box 24"></div>
+            <div class="box 25"></div>
+            <div class="box 26"></div>
+            <div class="box 27"></div>
+            <div class="box 28"></div>
+            <div class="box 29"></div>
+            <div class="box 30"></div>
+            <div class="box 31"></div>
+            <div class="box 32"></div>
+            <div class="box 33"></div>
+            <div class="box 34"></div>
+            <div class="box 35"></div>
+            <div class="box 36"></div>
+            <div class="box 37"></div>
+            <div class="box 38"></div>
+            <div class="box 39"></div>
+            <div class="box 40"></div>
+            <div class="box 41"></div>
+            <div class="box 42"></div>
+            <div class="box 43"></div>
+            <div class="box 44"></div>
+            <div class="box 45"></div>
+            <div class="box 46"></div>
+            <div class="box 47"></div>
+            <div class="box 48"></div>
+            <div class="box 49"></div>
+            <div class="box 50"></div>
+            <div class="box 51"></div>
+            <div class="box 52"></div>
+            <div class="box 53"></div>
+            <div class="box 54"></div>
+            <div class="box 55"></div>
+            <div class="box 56"></div>
+            <div class="box 57"></div>
+            <div class="box 58"></div>
+            <div class="box 59"></div>
+            <div class="box 60"></div>
+            <div class="box 61"></div>
+            <div class="box 62"></div>
+            <div class="box 63"></div>
+            <div class="box 64"></div>
+            <div class="box 65"></div>
+            <div class="box 66"></div>
+            <div class="box 67"></div>
+            <div class="box 68"></div>
+            <div class="box 69"></div>
+            <div class="box 70"></div>
+            <div class="box 71"></div>
+            <div class="box 72"></div>
+            <div class="box 73"></div>
+            <div class="box 74"></div>
+            <div class="box 75"></div>
+            <div class="box 76"></div>
+            <div class="box 77"></div>
+            <div class="box 78"></div>
+            <div class="box 79"></div>
+            <div class="box 80"></div>
+            <div class="box 81"></div>
+            <div class="box 82"></div>
+            <div class="box 83"></div>
+            <div class="box 84"></div>
+            <div class="box 85"></div>
+            <div class="box 86"></div>
+            <div class="box 87"></div>
+            <div class="box 88"></div>
+            <div class="box 89"></div>
+            <div class="box 90"></div>
+            <div class="box 91"></div>
+            <div class="box 92"></div>
+            <div class="box 93"></div>
+            <div class="box 94"></div>
+            <div class="box 95"></div>
+            <div class="box 96"></div>
+            <div class="box 97"></div>
+            <div class="box 98"></div>
+            <div class="box 99"></div>
+
+        </div>
+
+    </div>
+    <div class="cont">
+        <div class="but">
+            <button id="top">T</button>
+            <button id="left">L</button>
+            <button id="right">R</button>
+            <button id="bottom">B</button>
+        </div>
+        <button onclick="location.reload();">restart</button>
+    </div>
+    <script>
+        let speed = 1000;
+
+        class Queue {
+            constructor() {
+                this.items = { 0: "00" };
+                this.headIndex = 0;
+                this.tailIndex = 1;
+            }
+            enqueue(element) {
+                this.items[this.tailIndex] = element;
+                this.tailIndex++;
+            }
+            dequeue() {
+                let removedElement = this.items[this.headIndex];
+
+                delete this.items[this.headIndex];
+                this.headIndex++;
+                console.log(removedElement);
+                return removedElement;
+            }
+            dis() {
+                return Object.values(this.items);
+            }
+        }
+
+
+        let q = new Queue();
+
+
+        document.getElementById("top").addEventListener("click", function () { direction(1); });
+        document.getElementById("left").addEventListener("click", function () { direction(4); });
+        document.getElementById("right").addEventListener("click", function () { direction(2); });
+        document.getElementById("bottom").addEventListener("click", function () { direction(3); });
+
+        let di = 2; // it show the current moving 
+        function direction(mov) {  //this function is use as to change current direction
+            if ((di == 1 || di == 3) && (mov == 2 || mov == 4)) {
+                di = mov;
+            }
+            if ((di == 2 || di == 4) && (mov == 1 || mov == 3)) {
+                di = mov;
+            }
+        }
+
+
+        setInterval(function () {
+
+            let num = q.dis()[q.dis().length - 1];
+            let y = num.slice(0, 1);
+            let x = num.slice(1, 2);
+            if (di == "1") {
+                y--;
+                if (y == -1) { alert("you wer out and your score is" + q.dis().length); }
+                q.enqueue(y + x);
+                q.dis().forEach(element => {
+                    document.getElementsByClassName(element)[0].classList.add("red");
+                });
+                if (y + x == position) {
+                    document.getElementsByClassName(position)[0].classList.remove("green");
+                    pointgenerator();
+
+                } else {
+                    let rem = q.dequeue();
+                    document.getElementsByClassName(rem)[0].classList.remove("red");
+                }
+            }
+            if (di == "2") {
+                x++;
+                if (x == 10) { alert("you wer out and your score is" + q.dis().length); }
+                q.enqueue(y + x);
+                q.dis().forEach(element => {
+                    document.getElementsByClassName(element)[0].classList.add("red");
+                });
+                if (y + x == position) {
+                    document.getElementsByClassName(position)[0].classList.remove("green");
+                    pointgenerator();
+
+
+                } else {
+                    let rem = q.dequeue();
+                    document.getElementsByClassName(rem)[0].classList.remove("red");
+                }
+
+            }
+            if (di == "3") {
+                y++;
+                if (y == 10) { alert("you wer out and your score is" + q.dis().length); }
+                q.enqueue(y + x);
+                q.dis().forEach(element => {
+                    document.getElementsByClassName(element)[0].classList.add("red");
+                });
+                if (y + x == position) {
+                    document.getElementsByClassName(position)[0].classList.remove("green");
+                    pointgenerator();
+
+                } else {
+                    let rem = q.dequeue();
+                    document.getElementsByClassName(rem)[0].classList.remove("red");
+                }
+            }
+            if (di == "4") {
+                x--;
+                if (x == -1) { alert("you wer out and your score is" + q.dis().length); }
+                q.enqueue(y + x);
+                q.dis().forEach(element => {
+                    document.getElementsByClassName(element)[0].classList.add("red");
+                });
+                if (y + x == position) {
+                    document.getElementsByClassName(position)[0].classList.remove("green");
+                    pointgenerator();
+
+                } else {
+                    let rem = q.dequeue();
+                    document.getElementsByClassName(rem)[0].classList.remove("red");
+                }
+            }
+
+
+        }, speed);
+
+
+        // let a0=String(Math.floor(Math.random()*10));
+        // let a1=String(Math.floor(Math.random()*10));
+        // let position=a0+a1;
+        function pointgenerator() {
+
+
+            do {
+
+                a0 = String(Math.floor(Math.random() * 10));
+                a1 = String(Math.floor(Math.random() * 10));
+                position = a0 + a1;
+            } while (position in q.dis());
+            document.getElementsByClassName(a0 + a1)[0].classList.add("green");
+
+        }
+
+
+        pointgenerator();
+    </script>
+</body>
+
+</html>
