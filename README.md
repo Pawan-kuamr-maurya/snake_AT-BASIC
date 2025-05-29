@@ -3,6 +3,7 @@
 # Snake Game
 
 This is a simple Snake game created using HTML, CSS, and JavaScript. It allows you to play the classic snake game directly in your browser.
+![Untitled](https://github.com/user-attachments/assets/f592f110-2249-4355-95ff-30865a08e5d7)
 
 ## Features
 - **HTML**: Provides the structure for the game interface.
